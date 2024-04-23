@@ -3,7 +3,7 @@ import DocAnalysis from './components/documentAnalysis/DocAnalysis';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <DocAnalysis />
     </div>
   );
