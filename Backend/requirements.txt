@@ -1,2 +1,6 @@
 Flask==3.0.0
+Flask-Cors
+python-dotenv
 Werkzeug
+langchain
+langchain-google-genai

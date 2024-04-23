@@ -5,6 +5,7 @@ __pycache__
 
 # Environments 
 .env 
+.flaskenv
 .venv 
 env/ 
 venv/ 
@@ -13,3 +14,4 @@ env.bak/
 venv.bak/ 
 
 /venv
+/api/uploads/
