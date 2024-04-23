@@ -1,0 +1,15 @@
+.DocAnalysis {
+    text-align: center;
+}
+
+.UploadSection {
+    text-align: center;
+}
+
+.DocViewerContainer {
+    width: 50%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
