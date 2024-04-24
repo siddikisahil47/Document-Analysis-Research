@@ -1,6 +1,6 @@
 import React from 'react';
 import Message from '../message/Message';
-import './chatwindow.css';
+// import './chatwindow.css';
 
 const ChatWindow = ({ messages }) => {
     return (

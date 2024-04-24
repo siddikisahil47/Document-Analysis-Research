@@ -1,9 +1,9 @@
-import './App.css';
+// import './App.css';
 import DocAnalysis from './components/documentAnalysis/DocAnalysis';
 
 function App() {
   return (
-    <div>
+    <div className='bg-primary h-dvh'>
       <DocAnalysis />
     </div>
   );

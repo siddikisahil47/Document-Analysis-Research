@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ChatWindow from './chatwindow/ChatWindow';
 import InputArea from './inputArea/InputArea';
-import './chatbot.css'
+// import './chatbot.css'
 
 const Chatbot = () => {
     const [messages, setMessages] = useState([]);

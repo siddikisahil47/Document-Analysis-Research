@@ -1,5 +1,5 @@
 import React from 'react';
-import './message.css';
+// import './message.css';
 import Markdown from 'react-markdown'
 
 

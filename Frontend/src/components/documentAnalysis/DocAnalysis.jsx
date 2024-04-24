@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import DocUploader from './documentUploader/DocUploader';
 import Chatbot from './chatbot/Chatbot';
-import './docAnalysis.css';
+// import './docAnalysis.css';
 
 const DocAnalysis = () => {
     const [isChatbotVisible, setChatbotVisible] = useState(false);
 
     return (
-        <div className="DocAnalysis">
-            <span className='title'>Document Analysis</span>
-            <div className="content">
-                <DocUploader className="DocViewerContainer" onUpload={() => setChatbotVisible(true)} />
+        <div className='flex items-center justify-center flex-col h-screen'>
+            <div className='h-1/6'>
+                <span className='text-text text-6xl '>Document Analysis</span>
+            </div>
+            
+            <div className="flex flex-col item-center justify-center h-5/6 mb-20">
+                <DocUploader className="item-center" onUpload={() => setChatbotVisible(true)} />
                 {isChatbotVisible && <Chatbot />}
             </div>
         </div>

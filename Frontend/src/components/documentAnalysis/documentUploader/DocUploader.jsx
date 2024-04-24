@@ -1,12 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 import DocViewer, { DocViewerRenderers } from "@cyntler/react-doc-viewer";
-import "./docUploader.css"
+// import "./docUploader.css"
 
 const DocUploader = ({ onUpload }) => {
     const [selectedDocs, setSelectedDocs] = useState([]);
     const [isInputVisible, setInputVisible] = useState(true);
     const [isChangeButtonVisible, setChangeButtonVisible] = useState(false);
     const [isUploadButtonVisible, setUploadButtonVisible] = useState(false);
+    const [showDocViewer, setShowDocViewer] = useState(false);
     const fileInputRef = useRef(null);
 
     useEffect(() => {
@@ -56,12 +57,13 @@ const DocUploader = ({ onUpload }) => {
     const handleChangeDocument = () => {
         fileInputRef.current.click();
         setUploadButtonVisible(true);
+        setShowDocViewer(false); // Hide DocViewer when input button is clicked
     };
 
     return (
-        <div className="DocUploader">
+        <div className="flex flex-row-reverse items-center justify-center gap-10 ">
             {/* <h1>Document Analysis</h1> */}
-            <div className="UploadSection">
+            <div >
                 {/* <h2>Upload Section</h2> */}
                 <input
                     ref={fileInputRef}
@@ -71,42 +73,54 @@ const DocUploader = ({ onUpload }) => {
                     multiple
                     onChange={(el) => {
                         el.target.files?.length &&
-                        setSelectedDocs(Array.from(el.target.files));
+                            setSelectedDocs(Array.from(el.target.files));
                         setInputVisible(false);
                         setChangeButtonVisible(true);
                         setUploadButtonVisible(true);
+                        setShowDocViewer(true); // Show DocViewer after documents are selected
                     }}
                 />
                 {isChangeButtonVisible && (
-                    <button onClick={handleChangeDocument}>Change Document</button>
+                    <button 
+                        onClick={handleChangeDocument}
+                    >
+                        Change Document
+                    </button>
                 )}
                 {isUploadButtonVisible && (
-                    <button onClick={handleUpload}>Upload</button>
+                    <button 
+                        onClick={handleUpload}
+                    >
+                        Upload
+                    </button>
                 )}
             </div>
-            <div className="DocViewerContainer">
-                <DocViewer
-                    style={{width: 500, height: 700, marginLeft: 20, marginTop: 50}}
-                    // className='doc-viewer'
-                    documents={selectedDocs.map((file) => ({
-                        uri: window.URL.createObjectURL(file),
-                        fileName: file.name,
-                    }))}
-                    pluginRenderers={DocViewerRenderers}
-                    config={{
-                        header: {
-                            disableHeader: false,
-                            disableFileName: true,
-                            retainURLParams: true,
-                        },
-                        csvDelimiter: ",", // "," as default,
-                        pdfZoom: {
-                            defaultZoom: 1.1, // 1 as default,
-                            zoomJump: 0.2, // 0.1 as default,
-                        },
-                        pdfVerticalScrollByDefault: false, // false as default
-                    }}
-                />
+            <div >
+                {showDocViewer && (
+                    <DocViewer
+                        style={{ width: 500, height: 700, marginLeft: 20, marginTop: 50 }}
+                        // className='doc-viewer'
+                        documents={selectedDocs.map((file) => ({
+                            uri: window.URL.createObjectURL(file),
+                            fileName: file.name,
+                        }))}
+                        pluginRenderers={DocViewerRenderers}
+                        config={{
+                            header: {
+                                disableHeader: false,
+                                disableFileName: true,
+                                retainURLParams: true,
+                            },
+                            csvDelimiter: ",", // "," as default,
+                            pdfZoom: {
+                                defaultZoom: 1.1, // 1 as default,
+                                zoomJump: 0.2, // 0.1 as default,
+                            },
+                            pdfVerticalScrollByDefault: false, // false as default
+                        }}
+                    />
+                )}
+
             </div>
         </div>
     );

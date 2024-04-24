@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './inputArea.css';
+// import './inputArea.css';
 import { handleSendMessage } from '../MessageHandler'; 
 
 const InputArea = ({ onSendMessage, messages, setMessages }) => {
