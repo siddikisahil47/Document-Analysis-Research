@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from uploadDoc import upload_file
+from uploadDoc import upload_file, end_session
 from chatbot import get_ai_response
 
 app = Flask(__name__)
@@ -17,9 +17,6 @@ ai_response = ''
 def home():
     return 'Hello, World!'
 
-@app.route('/about')
-def about():
-    return 'About'
     
 @app.route('/upload', methods=['POST'])
 def upload():
@@ -36,3 +33,9 @@ def post_input():
 def get_response():
     global ai_response
     return jsonify({'response': ai_response})
+
+
+@app.route('/endSession', methods=['POST'])
+def end_session_route():
+    end_session()
+    return jsonify({'status': 'Session ended, uploaded document deleted.'})
