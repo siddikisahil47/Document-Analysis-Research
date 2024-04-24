@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import './inputArea.css';
 import { handleSendMessage } from '../MessageHandler'; 
 
 const InputArea = ({ onSendMessage, messages, setMessages }) => {
@@ -41,17 +40,17 @@ const InputArea = ({ onSendMessage, messages, setMessages }) => {
     };
 
     return (
-        <form className="input-area" onSubmit={handleSubmit}>
+        <form className="flex p-2 bg-heading gap-2 rounded-b-3xl" onSubmit={handleSubmit}>
             <input
                 type="text"
-                className='input-text'
+                className='flex-grow py-2 px-5 border border-gray-300 rounded-full focus:outline-none'
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder="Type your message..."
             />
             <button 
                 type="submit" 
-                className='input-button'
+                className='py-2 bg-secondary text-heading rounded-full cursor-pointer mr-1 w-24'
                 onClick={submitMessage}
                 disabled={isSubmitting}
             >

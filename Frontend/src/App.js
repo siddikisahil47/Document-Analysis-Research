@@ -1,4 +1,4 @@
-// import './App.css';
+import './App.css';
 import DocAnalysis from './components/documentAnalysis/DocAnalysis';
 
 function App() {
