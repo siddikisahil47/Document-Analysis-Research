@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import DocViewer, { DocViewerRenderers } from "@cyntler/react-doc-viewer";
 import "./docUploader.css"
 
@@ -8,6 +8,29 @@ const DocUploader = ({ onUpload }) => {
     const [isChangeButtonVisible, setChangeButtonVisible] = useState(false);
     const [isUploadButtonVisible, setUploadButtonVisible] = useState(false);
     const fileInputRef = useRef(null);
+
+    useEffect(() => {
+        // Add the event listener when the component mounts
+        window.addEventListener('beforeunload', handleEndSession);
+
+        // Remove the event listener when the component unmounts
+        return () => {
+            window.removeEventListener('beforeunload', handleEndSession);
+        };
+    }, []);
+
+    const handleEndSession = async (e) => {
+        // Prevent the default action to ensure the fetch request is sent
+        e.preventDefault();
+
+        // Send a POST request to the /endSession endpoint
+        await fetch('http://localhost:8080/endSession', {
+            method: 'POST',
+        });
+
+        // Return an empty string to show the default confirmation dialog
+        return '';
+    };
 
     const handleUpload = async () => {
         const formData = new FormData();

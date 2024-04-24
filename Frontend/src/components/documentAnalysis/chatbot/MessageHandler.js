@@ -1,8 +1,7 @@
-export const handleSendMessage = (messages, setMessages, message) => {
+export const handleSendMessage = (messages, setMessages, message, aiResponse) => {
     setMessages([
         ...messages,
         { text: message, isUser: true },
-        // Add any bot response logic here
-        { text: "Your response here", isUser: false }, // Bot response
+        { text: aiResponse, isUser: false }, // AI assistant response
     ]);
 };
