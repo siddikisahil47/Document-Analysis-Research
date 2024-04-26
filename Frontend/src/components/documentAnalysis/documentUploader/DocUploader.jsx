@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import DocViewer, { DocViewerRenderers } from "@cyntler/react-doc-viewer";
-// import "./docUploader.css"
 
 const DocUploader = ({ onUpload }) => {
     const [selectedDocs, setSelectedDocs] = useState([]);

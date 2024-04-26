@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import DocUploader from './documentUploader/DocUploader';
 import Chatbot from './chatbot/Chatbot';
-// import './docAnalysis.css';
 
 const DocAnalysis = () => {
     const [isChatbotVisible, setChatbotVisible] = useState(false);
