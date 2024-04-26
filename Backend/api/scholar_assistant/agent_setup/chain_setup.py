@@ -30,5 +30,4 @@ class Chain:
             verbose=True,
             agent_kwargs=agent_kwargs,
             memory=memory,
-            handle_parsing_errors=True,
         )

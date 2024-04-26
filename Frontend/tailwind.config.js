@@ -10,6 +10,9 @@ module.exports = {
         'heading': '#e3dbb7',
         'text': '#b29d73',
       },
+      // fontFamily: {
+      //   custom: ['basement', 'sans-serif'],
+      // },
     },
   },
   variants: {
