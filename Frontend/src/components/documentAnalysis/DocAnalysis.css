@@ -4,6 +4,7 @@
     src: local('MyFont'), url('../../../Fonts/BasementGrotesque-Bold.ttf') format('truetype');
 
 }
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 
 #heading {
     font-family: MyFont;
@@ -17,4 +18,16 @@
     letter-spacing: 2px;
     transition: 0.3s;
 }
+#top{
+    background-color: #483629;
+    width: 100%;
+    height: 30%;
+}
 
+#text{
+    background-color: #4f3724;
+    font-family: "Source Code Pro", monospace;
+    width: 100%;
+    height: 20%;
+
+}

@@ -8,13 +8,13 @@ const DocAnalysis = () => {
 
   return (
     <div className="flex items-center justify-center flex-col h-screen">
-      <div className="h-1/6 pt-10">
-        <span className="md:text-7xl sm:text-6xl text-6xl font-bold md:py-2 text-heading" id = "heading">
+      <div className="h-1/6 pt-10 " id = "top">
+        <span className="md:text-7xl sm:text-6xl text-6xl font-bold md:py-2 text-heading pl-[365px]" id = "heading">
           Document Analysis
         </span>
       </div>
-      <div className="h-1/6 mt-5">
-        <span className="md:text-1xl sm:text-2xl font-semibold text-white" id = "sub-heading">
+      <div className="h-1/6 pt-6 pl-[500px]" id = "text">
+        <span className="text-2xl mt-10 text-white" id = "sub-heading">
           Upload your document to get started
         </span>
       </div>
